@@ -1,17 +1,20 @@
-Feature: Login Page
-	As a developer
-	I want SA employees to be able to login
-	So that they can access their account
+# features/login.feature
+
+Feature: Register
+  As a registered member
+  So that can see information about movies that interest me
+  I want to login to the RottenPotatoes application
+
+Background: profiles in database
+
+  Given the following profiles exists:
+  | privilege|org|org2|manager_id|grad|user_id|
+  | 0        | 0 | 1  |420       |0   |       |
   
-#Scenario: User clicks on Login button
-	  #When I go to the landing page
-		#When I press "Login"
-		#Then I should be on the login page  
-  
-#Scenario: User is on login page
- # When I go to the login page
-  #Then I should see "Login Here"
-  #Then I should see "Email:"
-  #Then I should see "Password:"
-  #Then I should see "Login"
-  
+@omniauth_test1
+Scenario: login
+  Given I am on the landing page
+  And I press "Register or Login with GitHub"
+  Then I will see "Welcome Tester Suny! You have signed up via github."  
+  #And I will see the SA-Timesheet Dashboard
+  And I will see "Editing profile" 
